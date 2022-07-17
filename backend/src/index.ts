@@ -12,3 +12,19 @@ mongoose.connect('mongodb+srv://stefan79:chenzehan789@cluster0.o79le5o.mongodb.n
 }, (err: Error) => {
    if (err) throw err
 })
+
+// Middleware
+
+const app = express();
+app.use(express.json());
+app.use(cors({ origin: "http://localhost:3000", credentials: true }))
+app.use(
+  session({
+    secret: "secretcode",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+app.use(cookieParser());
+app.use(passport.initialize());
+app.use(passport.session());
