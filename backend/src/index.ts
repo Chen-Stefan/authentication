@@ -6,6 +6,7 @@ import passportLocal from 'passport-local';
 import cookieParser from 'cookie-parser';
 import session from 'express-session';
 import bcrypt from 'bcryptjs';
+import User from './User'
 import dotenv from 'dotenv';
 
 mongoose.connect('mongodb+srv://stefan79:chenzehan789@cluster0.o79le5o.mongodb.net/?retryWrites=true&w=majority', {
@@ -14,7 +15,6 @@ mongoose.connect('mongodb+srv://stefan79:chenzehan789@cluster0.o79le5o.mongodb.n
 })
 
 // Middleware
-
 const app = express();
 app.use(express.json());
 app.use(cors({ origin: "http://localhost:3000", credentials: true }))
