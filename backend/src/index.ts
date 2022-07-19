@@ -8,6 +8,7 @@ import session from 'express-session';
 import bcrypt from 'bcryptjs';
 import User from './User'
 import dotenv from 'dotenv';
+import { UserInterface } from './interfaces/UserInterface.';
 
 mongoose.connect('mongodb+srv://stefan79:chenzehan789@cluster0.o79le5o.mongodb.net/?retryWrites=true&w=majority', {
 }, (err: Error) => {
@@ -37,7 +38,7 @@ app.post('/register', async (req: Request, res: Response) => {
     res.send('Invalid values!')
     return 
   } 
-  User.findOne({ username }, async (err: Error, doc: string) => {
+  User.findOne({ username }, async (err: Error, doc: UserInterface) => {
     if (err) throw err
     if (doc) res.send('User already exists')
     if (!doc) {
