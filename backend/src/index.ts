@@ -33,7 +33,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 // Passport
 passport.use(new LocalStrategy((username: string, password: string, done) => {
-  User.findOne({ username: username }, (err, user: any) => {
+  User.findOne({ username: username }, (err: any, user: any) => {
     if (err) throw err;
     if (!user) return done(null, false);
     bcrypt.compare(password, user.password, (err, result: boolean) => {
@@ -48,16 +48,15 @@ passport.use(new LocalStrategy((username: string, password: string, done) => {
 })
 );
 
-passport.serializeUser((user: DatabaseUserInterface, cb) => {
+passport.serializeUser((user: any, cb) => {
   cb(null, user._id);
 });
 
 passport.deserializeUser((id: string, cb) => {
-  User.findOne({ _id: id }, (err, user: DatabaseUserInterface) => {
-    const userInformation: UserInterface = {
+  User.findOne({ _id: id }, (err: any, user: any) => {
+    const userInformation = {
       username: user.username,
       isAdmin: user.isAdmin,
-      id: user._id
     };
     cb(err, userInformation);
   });
