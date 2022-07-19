@@ -89,6 +89,10 @@ app.post('/register', async (req: Request, res: Response) => {
   
 })
 
+app.post('/login', passport.authenticate('local', (req, res) => {
+  res.send('Authentication Successful')
+}))
+
 app.listen(5000, () => {
   console.log('Server Started')
 })
