@@ -93,6 +93,10 @@ app.post('/login', passport.authenticate('local', (req, res) => {
   res.send('Authentication Successful')
 }))
 
+app.get('/user', (req, res) => {
+  res.send(req.user)
+})
+
 app.listen(5000, () => {
   console.log('Server Started')
 })
