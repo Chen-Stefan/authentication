@@ -66,8 +66,8 @@ passport.deserializeUser((id: string, cb) => {
 // Routes
 app.post('/register', async (req: Request, res: Response) => {
 
-  const { username, password } = req.body
-  if (!username || !passport || typeof username !== 'string' || typeof password !== 'string') {
+  const { username, password } = req?.body
+  if (!username || !passport || typeof username !== "string" || typeof password !== "string") {
     res.send('Invalid values!')
     return 
   } 
@@ -88,9 +88,9 @@ app.post('/register', async (req: Request, res: Response) => {
   
 })
 
-app.post('/login', passport.authenticate('local', (req, res) => {
+app.post('/login', passport.authenticate('local'), (req, res) => {
   res.send('Authentication Successful')
-}))
+})
 
 app.get('/user', (req, res) => {
   res.send(req.user)
