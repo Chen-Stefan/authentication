@@ -5,7 +5,7 @@ import Homepage from './pages/HomePage';
 import AdminPage from './pages/AdminPage';
 import Login from './pages/Login';
 import Profile from './pages/Profile';
-
+import './main.css'
 // Routes就是v5的 Switch
 function App() {
   return (
