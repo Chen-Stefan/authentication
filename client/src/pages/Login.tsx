@@ -30,7 +30,7 @@ export default function Login() {
       <input type="text" placeholder='username' onChange={e => setUsername(e.target.value)}/>
       <input type="text" placeholder='password' onChange={e => setPassword(e.target.value)}/>
       <button onClick={login}>Login</button>
-      <button>Get logged in users</button>
+      <button onClick={getUser}>Get logged in users</button>
     </div>
   )
 }
