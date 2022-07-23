@@ -9,7 +9,8 @@ export default function Navbar() {
       {ctx ? (
         <>
           <Link to="/logout">Logout</Link>
-          <Link to="/admin">Admin</Link>
+          {ctx.isAdmin ? (<Link to="/admin">Admin</Link>) : null}
+          
           <Link to="/profile">Profile</Link>
         </>
       ) : (
