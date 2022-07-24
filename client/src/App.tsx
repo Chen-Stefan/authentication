@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import "./main.css";
 import Context from "./pages/Context";
+import Register from "./pages/Register";
 
 // Routes就是v5的 Switch
 function App() {
@@ -18,7 +19,8 @@ function App() {
           <Route path="/" element={<Homepage />}></Route>
           <Route path="/admin" element={<AdminPage />}></Route>
           <Route path="/login" element={<Login />}></Route>
-          <Route path="/register" element={<Profile />}></Route>
+          <Route path="/profile" element={<Profile />}></Route>
+          <Route path="/register" element={<Register />}></Route>
         </Routes>
       </Context>
     </BrowserRouter>
