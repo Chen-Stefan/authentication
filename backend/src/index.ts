@@ -92,10 +92,26 @@ app.post('/login', passport.authenticate('local'), (req, res) => {
   res.send('Authentication Successful')
 })
 
+// Grab logged in user
 app.get('/user', (req, res) => {
   res.send(req.user)
 })
 
+// Log out user
+app.get('/logout', function(req, res){
+  req.logout(function(err) {
+    if (err) { return next(err); }
+    res.send('Logout successful');
+  });
+});
+
+function next(err: any): void {
+  throw new Error('Function not implemented.');
+}
+
 app.listen(5000, () => {
   console.log('Server Started')
 })
+
+
+

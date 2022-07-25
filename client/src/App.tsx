@@ -15,23 +15,23 @@ function App() {
 
   return (
     <BrowserRouter>
-        <Navbar />
-        <Routes>
-          {ctx ? (
-            <>
-              {ctx.isAdmin ? (
-                <Route path="/admin" element={<AdminPage />}></Route>
-              ) : null}
-              <Route path="/profile" element={<Profile />}></Route>
-            </>
-          ) : (
-            <>
-              <Route path="/login" element={<Login />}></Route>
-              <Route path="/register" element={<Register />}></Route>
-            </>
-          )}
-          <Route path="/" element={<Homepage />}></Route>
-        </Routes>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Homepage />}></Route>
+        {ctx ? (
+          <>
+            {ctx.isAdmin ? (
+              <Route path="/admin" element={<AdminPage />}></Route>
+            ) : null}
+            <Route path="/profile" element={<Profile />}></Route>
+          </>
+        ) : (
+          <>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
+          </>
+        )}
+      </Routes>
     </BrowserRouter>
   );
 }
