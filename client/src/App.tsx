@@ -15,7 +15,6 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Context>
         <Navbar />
         <Routes>
           {ctx ? (
@@ -33,7 +32,6 @@ function App() {
           )}
           <Route path="/" element={<Homepage />}></Route>
         </Routes>
-      </Context>
     </BrowserRouter>
   );
 }
