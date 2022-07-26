@@ -10,7 +10,9 @@ export default function Navbar() {
     axios.get('http://localhost:5000/logout', {
       withCredentials: true
     }).then((res) => {
-      console.log(res)
+      if (res.data === 'Logout successful') {
+        window.location.href = '/'
+      }
     })
   }
 
