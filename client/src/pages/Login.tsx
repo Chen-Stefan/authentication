@@ -12,7 +12,9 @@ export default function Login() {
     }, {
       withCredentials: true
     }).then(res => {
-      console.log(res.data)
+      if (res.data === 'Authentication Successful') {
+        window.location.href = '/'
+      }
     })
   }
 
